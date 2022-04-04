@@ -7,18 +7,40 @@ import os
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import GradientBoostingRegressor
 
-
+#Ingestion
 from pathlib import Path
+
+#Visualisation
+import matplotlib.pyplot as plt
+
 PATH_TESTS_DATA = Path(__file__).resolve().parents
 Data_path = PATH_TESTS_DATA[1] / "data"
 
 files =[ csvfile for csvfile in Data_path.iterdir() if csvfile.is_file() and csvfile.suffix == ".csv"]
-import matplotlib.pyplot as plt
-data = pd.read_csv(files[2], parse_dates=['timestamp'], index_col='timestamp').sort_index()
-print(data.columns)
+
+data = pd.read_csv(files[2], parse_dates=['timestamp'],index_col=["timestamp"]).sort_index()
+#%%
 data = data.rename(columns={"energy": "actual"})
-data_to_plot = data.loc["2015"].copy()
-plt.plot(data_to_plot)
+data_years = pd.DatetimeIndex(data.index).year.unique()
+data_to_plot = data.loc[f"{data_years[0]}"]
+
+def _plot_pie_chart_yearwise(data_to_plot,data_years):
+    plt.pie(data)
+    
+def _plot_timeseris_data(data_to_plot,label):
+    plt.figure()
+    plt.plot(data_to_plot["actual"])
+    plt.title(label)
+    plt.xlabel("Timestamp")
+    plt.ylabel("Actual Energy")
+    # ax = plt.gca()
+    #plt.draw()
+
+    plt.gca().set_xticklabels(rotation = 45)
+
+    plt.show()
+_plot_timeseris_data(data_to_plot,label=f"{data_years[0]}")
+#%%
 plt.show()
 data.loc['2015-01-01':'2015-07-01', "actual"]
 data.resample('12 H')["actual"].mean()
