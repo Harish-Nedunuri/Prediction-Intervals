@@ -2,6 +2,7 @@
 import pandas as pd
 import numpy as np
 import os
+from pyspark.sql import SparkSession
 
 # Modeling
 from sklearn.base import BaseEstimator
@@ -17,7 +18,11 @@ PATH_TESTS_DATA = Path(__file__).resolve().parents
 Data_path = PATH_TESTS_DATA[1] / "data"
 
 files =[ csvfile for csvfile in Data_path.iterdir() if csvfile.is_file() and csvfile.suffix == ".csv"]
-
+spark = SparkSession \
+    .builder \
+    .appName("how to read csv file") \
+    .getOrCreate()
+df_data = spark.read.csv(files[2])
 data = pd.read_csv(files[2], parse_dates=['timestamp'],index_col=["timestamp"]).sort_index()
 #%%
 data = data.rename(columns={"energy": "actual"})
@@ -33,11 +38,7 @@ def _plot_timeseris_data(data_to_plot,label):
     plt.title(label)
     plt.xlabel("Timestamp")
     plt.ylabel("Actual Energy")
-    # ax = plt.gca()
-    #plt.draw()
-
-    plt.gca().set_xticklabels(rotation = 45)
-
+    
     plt.show()
 _plot_timeseris_data(data_to_plot,label=f"{data_years[0]}")
 #%%
