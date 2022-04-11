@@ -50,28 +50,20 @@ def convert_schema_col_to_int(dframe, col_name):
     df_schema_changed=dframe.withColumn(col_name,col(col_name).cast('int'))
     return df_schema_changed
 
-df_schema_changed=convert_schema_col_to_double(df_schema_changed, "actual")
-df_schema_changed=convert_schema_col_to_double(df_schema_changed, "temperature")
-df_schema_changed=convert_schema_col_to_double(df_schema_changed, "irradiance")
-df_schema_changed=convert_schema_col_to_double(df_schema_changed, "relative_humidity")
-df_schema_changed=convert_schema_col_to_double(df_schema_changed, "time_of_day")
-df_schema_changed = convert_schema_col_to_int(df_schema_changed,"business_day")
-df_schema_changed = convert_schema_col_to_int(df_schema_changed,"day_of_week")
-df_schema_changed = convert_schema_col_to_int(df_schema_changed,"day_of_year")
 
-
-df_schema_changed.printSchema()
-
-
-#task 1
-# 1d line plot of column-actual
-#task 2
-# a pie chart of the data for unique years
-
-
-# def _plot_pie_chart_yearwise(data_to_plot,data_years):
-#     plt.pie(data)
+to_double_columns=["actual","temperature","irradiance","relative_humidity","time_of_day"]
+for col_name in to_double_columns:
+    df_schema_changed=convert_schema_col_to_double(df_schema_changed, col_name)
     
+to_int_columns=["business_day","day_of_week","day_of_year","year"]
+for col_name_int in to_int_columns:
+    df_schema_changed=convert_schema_col_to_int(df_schema_changed,col_name_int)
+df_schema_changed.printSchema()
+df_schema_changed.show(10)
+years = df_schema_changed.select('year').distinct().collect()
+df_y=df_schema_changed.where(df_schema_changed.year=='2014')
+
+       
 def _plot_timeseris_data(data_to_plot,label):
     plt.figure()
     plt.plot(data_to_plot["actual"])
