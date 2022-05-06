@@ -7,11 +7,7 @@ import display_functions
 from sklearn.base import BaseEstimator
 from sklearn.ensemble import GradientBoostingRegressor
 # from ipywidgets import interact, widgets
-#Ingestion
-import plotly.graph_objs as go
-from plotly.offline import iplot, plot, init_notebook_mode
-init_notebook_mode(connected=True)
-import plotly_express as px
+
 from pathlib import Path
 #Visualisation
 from display_functions import plot_array,plot_prediction_intervals
