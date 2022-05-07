@@ -6,13 +6,11 @@ import pandas as pd
 from prediction_intervals import get_intervals
 
   
-def load_processed_data(input_data_filename) -> list:
+def load_data(input_data_filename: str) -> list:
 
     print(f"Reading input file: {input_data_filename}")
     try:
-        with open(input_data_filename) as data_file:
-
-            data = pd.read_csv(files[3], parse_dates=['timestamp'],
+        data = pd.read_csv(input_data_filename, parse_dates=['timestamp'],
                         index_col='timestamp').sort_index()
             
     except TypeError:
@@ -57,14 +55,13 @@ def parse_arguments():
 
 def forecast_intervals_full(
     energy_data_filename,
-    model_configs,
+    model_configs_filename,
     output_directory,
 
 ):
 
-    data = load_data(input_moisture_filename)
 
-    model_configs = load_config_json(setting_filename)
+    model_configs = load_config_json(model_configs_filename)
     prediction_intervals, outputs = get_intervals(
         data, model_configs
     )
@@ -77,6 +74,12 @@ def main():
     args = parse_arguments()
     forecast_intervals_full(args.energy_data_filename,
                             args.model_configs, args.outdir)
+                            
+    # energy_data_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/building_2_energy_data.csv"
+    # model_configs_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/configs.json"
+    # outdir="/personal/personal/git_repos/Prediction-Intervals/tests/data"
+
+    # forecast_intervals_full(energy_data_filename,model_configs_filename, outdir)
     
 if __name__ == "__main__":
     main()

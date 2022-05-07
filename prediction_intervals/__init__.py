@@ -12,3 +12,7 @@ from pathlib import Path
 
 def example_function():
     return 1 + 1
+
+def get_intervals(data, model_configs):
+    
+    return 
