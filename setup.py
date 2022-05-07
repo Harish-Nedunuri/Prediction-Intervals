@@ -35,5 +35,5 @@ setup(
             "pytest==7.0.1",
             "pytest-cov==3.0.0"]
 },
-    python_requires=">=3.7",
+    python_requires=">=3.8",
 )
