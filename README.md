@@ -12,6 +12,15 @@ Install this library using `pip`:
 
     pip install prediction-intervals
 
+Pyspark and JAVA installation locally done on windows
+
+https://www.youtube.com/watch?v=NFpW6JgNaQk
+
+1. Install java in C->Java
+2. Edit system Env variables JAVA_HOME,SPARK_HOME
+3. PATH + =C:\Spark\spark-3.0.3-bin-hadoop2.7\bin
+
+
 ## Usage
 
 Usage instructions go here.

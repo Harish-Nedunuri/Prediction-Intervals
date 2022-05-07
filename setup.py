@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-VERSION = "0.0.1"
+VERSION = "0.0.3"
 
 
 def get_long_description():
@@ -28,7 +28,7 @@ setup(
     
     version=VERSION,
     packages=["prediction_intervals"],
-    install_requires=["pandas==1.4.1","matplotlib==3.5.0","scikit-learn==1.0.2"],
+    install_requires=["findspark==2.0.1","pandas==1.4.1","pyspark==3.0.0","matplotlib==3.5.0","scikit-learn==1.0.2"],
     extras_require={"test": ["tox==3.24.4",
             "black==22.3.0",
             "flake8==4.0.1",
