@@ -16,10 +16,10 @@ Pyspark and JAVA installation locally done on windows
 
 https://www.youtube.com/watch?v=NFpW6JgNaQk
 
-1. Install java in C->Java
+1. Install java 
 2. Edit system Env variables JAVA_HOME,SPARK_HOME
 3. PATH + =C:\Spark\spark-3.0.3-bin-hadoop2.7\bin
-
+4. pip install findspark and pyspark (see setup.py file)
 
 ## Usage
 
