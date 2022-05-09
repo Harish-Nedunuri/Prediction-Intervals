@@ -14,6 +14,10 @@ def example_function():
     return 1 + 1
 
 def get_intervals(data, model_configs):
+    data = data.withColumn('timestamp', to_date('timestamp'))
+    data=data.sort('timestamp')
+    data=data.withColumnRenamed("energy","actual")
+    
     prediction_intervals={}
     outputs ={}
     return prediction_intervals,outputs
