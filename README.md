@@ -4,9 +4,18 @@
 [![Changelog](https://img.shields.io/github/v/release/Harish-Nedunuri/prediction-intervals?include_prereleases&label=changelog)](https://github.com/Harish-Nedunuri/prediction-intervals/releases)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Harish-Nedunuri/prediction-intervals/blob/main/LICENSE)
 
+“All models are wrong but some are useful” — George Box.
+
+A more honest way to show predictions from a model is as a range of estimates.
+
+This project attempts to deliver a fully functional python package to estimate predcition intervals of a time series data.
+
+This package uses Spark 3.0 python API and will be deployed on local machine and Databricks community edition cluster
+
 ## Contact details
 [![Contact](https://user-images.githubusercontent.com/97321212/167557927-8770a357-adde-41d3-a0ee-5b59c34b157e.png)](https://www.linkedin.com/in/harish-nedunuri/)
 
+Please stay tuned
 
 ## Installation
 
