@@ -3,8 +3,19 @@
 [![PyPI](https://img.shields.io/pypi/v/prediction-intervals.svg)](https://pypi.org/project/prediction-intervals/)
 [![Changelog](https://img.shields.io/github/v/release/Harish-Nedunuri/prediction-intervals?include_prereleases&label=changelog)](https://github.com/Harish-Nedunuri/prediction-intervals/releases)
 [![License](https://img.shields.io/badge/license-Apache%202.0-blue.svg)](https://github.com/Harish-Nedunuri/prediction-intervals/blob/main/LICENSE)
-[![Contact](https://www.linkedin.com/in/harish-nedunuri/)]
 
+“All models are wrong but some are useful” — George Box.
+
+A more honest way to show predictions from a model is as a range of estimates.
+
+This project attempts to deliver a fully functional python package to estimate predcition intervals of a time series data.
+
+This package uses Spark 3.0 python API and will be deployed on local machine and Databricks community edition cluster
+
+## Contact details
+[![Contact](https://user-images.githubusercontent.com/97321212/167557927-8770a357-adde-41d3-a0ee-5b59c34b157e.png)](https://www.linkedin.com/in/harish-nedunuri/)
+
+Please stay tuned
 
 ## Installation
 
@@ -23,17 +34,17 @@ https://www.youtube.com/watch?v=NFpW6JgNaQk
 
 ## Usage and Comments
 
-1. A .vscode/launch.json is added to leverage teh vs code debugging feature.(This will not be a part of the final PyPi package)
+1. A .vscode/launch.json - to leverage the VS code debugging feature.(This will not be a part of the final PyPi package)
 
-2. A setup.py and requirements.txt file is included as a backup to setup.py file to recreate the virtual env (This will not be a part of the final PyPi package)
+2. A setup.py and requirements.txt files - to recreate the virtual env (This will not be a part of the final PyPi package)
 
-3. prediction_intervals the main python functions 
+3. prediction_intervals- the main python functions 
 
 4. gitactions- automated testing on github CI and CD pipeline (tbc)
 
 5. tests- a collection of unit and integration tests (dummy code included)
 
-6. tests/data/- collection of energy consumption history (.csv) data files acquired from following source
+6. tests/data/- collection of energy consumption history (.csv) data. Acquired and cleaned from following source
 https://www.drivendata.org/competitions/51/electricity-prediction-machine-learning/
 
 
@@ -41,9 +52,16 @@ https://www.drivendata.org/competitions/51/electricity-prediction-machine-learni
 
 To contribute to this library, first checkout the code. Then create a new virtual environment:
 
+    #windows
     cd prediction-intervals
-    python -m venv venv
-    source venv/bin/activate
+    py -m venv .venv
+    .venv\Scripts\activate
+    
+    #bash
+    cd prediction-intervals
+    python -m venv .venv
+    source .venv/Scripts/activate
+    
 
 Now install the dependencies and test dependencies:
 
