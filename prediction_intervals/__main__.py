@@ -2,7 +2,7 @@ import argparse
 from pathlib import Path
 import json
 import pandas as pd
-import pyspark # importing the module
+import pyspark 
  
 from pyspark.sql import SparkSession
 
@@ -70,21 +70,21 @@ def forecast_intervals_full(
     prediction_intervals, outputs = get_intervals(
         data, model_configs
     )
-
+    
     print(f"{prediction_intervals=}")
     print(f"{outputs=}")
 
 
 def main():
-    args = parse_arguments()
-    forecast_intervals_full(args.energy_data_filename,
-                            args.model_configs, args.outdir)
+    # args = parse_arguments()
+    # forecast_intervals_full(args.energy_data_filename,
+    #                         args.model_configs, args.outdir)
                             
-    # energy_data_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/building_2_energy_data.csv"
-    # model_configs_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/configs.json"
-    # outdir="/personal/personal/git_repos/Prediction-Intervals/tests/data"
+    energy_data_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/building_2_energy_data.csv"
+    model_configs_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/configs.json"
+    outdir="/personal/personal/git_repos/Prediction-Intervals/tests/data"
 
-    # forecast_intervals_full(energy_data_filename,model_configs_filename, outdir)
+    forecast_intervals_full(energy_data_filename,model_configs_filename, outdir)
     
 if __name__ == "__main__":
     main()
