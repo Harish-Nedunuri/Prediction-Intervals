@@ -28,7 +28,7 @@ setup(
     
     version=VERSION,
     packages=["prediction_intervals"],
-    install_requires=["findspark==2.0.1","pandas==1.4.1","pyspark==3.0.0","matplotlib==3.5.0","scikit-learn==1.0.2"],
+    install_requires=["findspark==2.0.1","pandas==1.4.1","pyspark==3.1.3","matplotlib==3.5.0","scikit-learn==1.0.2"],
     extras_require={"test": ["tox==3.24.4",
             "black==22.3.0",
             "flake8==4.0.1",
