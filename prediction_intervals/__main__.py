@@ -15,7 +15,7 @@ def load_data(input_data_filename: str) -> list:
     print(f"Reading input file: {input_data_filename}")
     try:
         session = SparkSession.builder.appName('First App').getOrCreate() 
-        
+        #TODO define a explicit schema, auto schema on read is not recommended
         data = session.read.options(header='True', inferSchema='True', delimiter=',') \
                 .csv(input_data_filename)
     except TypeError:
