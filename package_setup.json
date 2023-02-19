@@ -1,0 +1,8 @@
+{
+    "package_name": "prediction_intervals",
+    "package_version": "0.5.2",
+    "package_description": "This package will get the predictions intervals of a dataset based on gradient boosting regressor",
+    "functions": [
+        "gradient_boosting_regressor_func"
+    ]
+}

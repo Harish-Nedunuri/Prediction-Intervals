@@ -6,7 +6,7 @@ import pyspark
  
 from pyspark.sql import SparkSession
 
-from prediction_intervals import get_intervals
+from prediction_intervals.gradient_boosting_regressor_func.gbr_core.interval_extract import get_intervals
 from pyspark import SparkContext
 
 
@@ -80,9 +80,9 @@ def main():
     # forecast_intervals_full(args.energy_data_filename,
     #                         args.model_configs, args.outdir)
                             
-    energy_data_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/building_2_energy_data.csv"
-    model_configs_filename="/personal/personal/git_repos/Prediction-Intervals/tests/data/raw/configs.json"
-    outdir="/personal/personal/git_repos/Prediction-Intervals/tests/data"
+    energy_data_filename="/Prediction-Intervals/tests/data/raw/building_2_energy_data.csv"
+    model_configs_filename="/Prediction-Intervals/tests/data/raw/configs.json"
+    outdir="/Prediction-Intervals/tests/data/"
 
     forecast_intervals_full(energy_data_filename,model_configs_filename, outdir)
     

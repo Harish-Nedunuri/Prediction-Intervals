@@ -1,7 +1,8 @@
 from setuptools import setup
 import os
+import json
 
-VERSION = "0.0.4"
+VERSION = "0.0.5"
 
 
 def get_long_description():
@@ -11,6 +12,13 @@ def get_long_description():
     ) as fp:
         return fp.read()
 
+with open("package_setup.json", "r") as f:
+    package_setup = json.load(f)
+    package_name = package_setup["package_name"]
+    package_version = package_setup["package_version"]
+    package_description = package_setup["package_description"]
+    package_tasks = package_setup["functions"]
+
 
 setup(
     name="prediction-intervals",
@@ -19,7 +27,10 @@ setup(
     long_description_content_type="text/markdown",
     author="Harish Nedunuri",
     url="https://github.com/Harish-Nedunuri/prediction-intervals",
-    entry_points={"console_scripts": ["prediciton_intervals=prediction_intervals.__init__:main",]},
+    entry_points={"console_scripts": [
+            f"{package_name}.{task}={package_name}.{task}.entry:main"
+            for task in package_tasks
+        ]},
     project_urls={
         "Issues": "https://github.com/Harish-Nedunuri/prediction-intervals/issues",
         "CI": "https://github.com/Harish-Nedunuri/prediction-intervals/actions",

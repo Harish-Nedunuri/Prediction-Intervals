@@ -8,7 +8,7 @@ numpy==1.22.3
 packaging==21.3
 pandas==1.4.1
 
-prediction-intervals==0.0.3
+prediction-intervals
 py4j==0.10.9
 pyparsing==3.0.8
 pyspark==3.1.3
