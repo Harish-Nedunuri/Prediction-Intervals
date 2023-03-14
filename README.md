@@ -15,8 +15,6 @@ This package uses Spark 3.0 python API and will be deployed on local machine and
 ## Contact details
 [![Contact](https://user-images.githubusercontent.com/97321212/167557927-8770a357-adde-41d3-a0ee-5b59c34b157e.png)](https://www.linkedin.com/in/harish-nedunuri/)
 
-Please stay tuned
-
 ## Installation
 
 Install this library using `pip`:
